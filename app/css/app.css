@@ -28,3 +28,39 @@
   content: "";
   padding: 0;
 }
+
+h2{
+  text-decoration: underline;
+  color:pink;
+}
+
+ul{
+  padding: 15px;
+}
+
+ul li {
+  padding: 15px;
+  font-size: 20px;
+  display: inline;
+}
+
+
+input[type="text"]{
+  display:block;
+}
+
+
+
+.left-button{
+  background-color: aliceblue;
+}
+
+.right-button{
+  right: 0px;
+}
+
+body{
+  padding-left: 40px;
+  color:pink;
+}
+

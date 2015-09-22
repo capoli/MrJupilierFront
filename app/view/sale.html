@@ -8,7 +8,7 @@
                 {{p.name}}
             </label>
         </div>
-        <button class="right-button" ng-click="next(1)">Verder</button>
+        <button class="btn-success" ng-click="next(1)">Verder</button>
     </div>
     <div class="metric-list" ng-show="steps[1].visible">
         <h2>Kies een metriek</h2>
@@ -19,21 +19,21 @@
                 {{m.name}}
             </label>
         </div>
-        <button class="left-button" ng-click="previous(0)">Terug</button>
-        <button class="right-button" ng-click="next(2)">Verder</button>
+        <button class="btn-success" ng-click="previous(0)">Terug</button>
+        <button class="btn-success" ng-click="next(2)">Verder</button>
     </div>
     <div class="quantity" ng-show="steps[2].visible">
         <h2>Vul een hoeveelheid in</h2>
         <input type="number" placeholder="Qyuantity" ng-model="amount"/>
-        <button class="left-button" ng-click="previous(1)">Terug</button>
-        <button class="right-button" ng-click="next(3)">Verder</button>
+        <button class="btn-success" ng-click="previous(1)">Terug</button>
+        <button class="btn-success" ng-click="next(3)">Verder</button>
     </div>
     <div class="overview" ng-show="steps[3].visible">
         <h2>Overzicht</h2>
         <label for="brand">Merk: </label><span id="brand" class="overview-field" ng-bind="product.name"></span>  
         <label for="metric">Metriek: </label><span id="metric" class="overview-field" ng-bind="metric.name"></span>
         <label for="quantity">Hoeveelheid: </label><span id="quantity" class="overview-field" ng-bind="amount"></span>
-        <button class="left-button" ng-click="cancel()">Annuleer</button>
-        <button class="right-button" ng-click="submit()">Verzend</button>
+        <button class="btn-success" ng-click="cancel()">Annuleer</button>
+        <button class="btn-success" ng-click="submit()">Verzend</button>
     </div>
 </form>

@@ -1,36 +1,39 @@
 <form>
-    <div class="brand-list">
-        <h2>Kies een merk</h2>
-        <ul>
-            <li class="brand-list-item"><label><input type="checkbox" name="checkbox" value="value">Jupiler</label></li>
-            <li class="brand-list-item"><label><input type="checkbox" name="checkbox" value="value">Stella</label></li>
-            <li class="brand-list-item"><label><input type="checkbox" name="checkbox" value="value">Duvel</label></li>
-            <li class="brand-list-item"><label><input type="checkbox" name="checkbox" value="value">Etc</label></li>
-        </ul>
-        <button class="right-button">Verder</button>
+    <div class="brand-list" ng-show="steps[0].visible">
+        <h2>Kies een product</h2>
+
+        <div ng-repeat="p in products">
+            <label>
+                <input type="radio" name="radioProd" ng-model="product" ng-value="p">
+                {{p.name}}
+            </label>
+        </div>
+        <button class="right-button" ng-click="next(1)">Verder</button>
     </div>
-    <div class="metric-list">
+    <div class="metric-list" ng-show="steps[1].visible">
         <h2>Kies een metriek</h2>
-        <ul>
-            <li class="metric-list-item"><label><input type="checkbox" name="checkbox" value="value">Vaten</label></li>
-            <li class="metric-list-item"><label><input type="checkbox" name="checkbox" value="value">Blikjes</label></li>
-            <li class="metric-list-item"><label><input type="checkbox" name="checkbox" value="value">Flessen</label></li>
-        </ul>
-        <button class="left-button">Terug</button>
-        <button class="right-button">Verder</button>
+
+        <div ng-repeat="m in metrics">
+            <label>
+                <input type="radio" name="radioMetr" ng-model="metric" ng-value="m">
+                {{m.name}}
+            </label>
+        </div>
+        <button class="left-button" ng-click="previous(0)">Terug</button>
+        <button class="right-button" ng-click="next(2)">Verder</button>
     </div>
-    <div class="quantity">
+    <div class="quantity" ng-show="steps[2].visible">
         <h2>Vul een hoeveelheid in</h2>
-        <input type="text" placeholder="Qyuantity">
-        <button class="left-button">Terug</button>
-        <button class="right-button">Verder</button>
+        <input type="number" placeholder="Qyuantity" ng-model="amount"/>
+        <button class="left-button" ng-click="previous(1)">Terug</button>
+        <button class="right-button" ng-click="next(3)">Verder</button>
     </div>
-    <div class="overview">
+    <div class="overview" ng-show="steps[3].visible">
         <h2>Overzicht</h2>
-        <label for="brand">Merk: </label><span id="brand" class="overview-field"></span>
-        <label for="metric">Metriek: </label><span id="metric" class="overview-field"></span>
-        <label for="quantity">Hoeveelheid: </label><span id="quantity" class="overview-field"></span>
-        <button class="left-button">Annuleer</button>
-        <input type="submit" class="right-button" value="Verzend"/>
+        <label for="brand">Merk: </label><span id="brand" class="overview-field" ng-bind="product.name"></span>  
+        <label for="metric">Metriek: </label><span id="metric" class="overview-field" ng-bind="metric.name"></span>
+        <label for="quantity">Hoeveelheid: </label><span id="quantity" class="overview-field" ng-bind="amount"></span>
+        <button class="left-button" ng-click="cancel()">Annuleer</button>
+        <button class="right-button" ng-click="submit()">Verzend</button>
     </div>
 </form>
